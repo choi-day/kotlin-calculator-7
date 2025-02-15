@@ -72,10 +72,8 @@ fun stringToInt(a: List<String>): List<Int> {
 }
 
 fun defineInt(a: List<Int>): List<Int> {
-    for (i in a) {
-        if (i <= 0) {
-            inputNotPositive()
-        }
+    if (a.all { it > 0 }) {
+        inputNotPositive()
     }
     return a
 }

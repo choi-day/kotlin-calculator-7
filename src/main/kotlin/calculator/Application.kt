@@ -18,14 +18,14 @@ fun main() {
     var isCustom = identifySign(num)
     if (isCustom) {
         val sign = extractSign(num)
-        var splitList = customSplit(num, sign)
-        var intList = stringToInt(splitList)
+        val splitList = customSplit(num, sign)
+        val intList = stringToInt(splitList)
 
         numList.addAll(defineInt(intList))
 
     } else {
-        var splitList = basicSplit(num)
-        var intList = stringToInt(splitList)
+        val splitList = basicSplit(num)
+        val intList = stringToInt(splitList)
         numList.addAll(defineInt(intList))
     }
     val result = sum(numList)
@@ -59,7 +59,7 @@ fun extractSign(a: String): Char {
 }
 
 fun stringToInt(a: List<String>): List<Int> {
-    var numList = mutableListOf<Int>()
+    val numList = mutableListOf<Int>()
     for (i in a) {
         try {
             var k = i.toInt()

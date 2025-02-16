@@ -58,21 +58,18 @@ fun extractSign(a: String): Char {
     return sign
 }
 
+fun isNumDigit(a: String): Boolean = a.all { it.isDigit() }
+
 fun stringToInt(a: List<String>): List<Int> {
-    val numList = mutableListOf<Int>()
-    for (i in a) {
-        try {
-            var k = i.toInt()
-            numList.add(k)
-        } catch (e: NumberFormatException) {
-            incorrectSign()
-        }
+    require(a.all { isNumDigit(it)}){
+        incorrectSign()
     }
+    val numList = a.map{it.toInt()}
     return numList
 }
 
 fun defineInt(a: List<Int>): List<Int> {
-    if (a.all { it > 0 }) {
+    if (a.all { it < 0 }) {
         inputNotPositive()
     }
     return a
